@@ -3,6 +3,12 @@
   <v-toolbar color="teal" dark>
     <v-toolbar-title>TODOs</v-toolbar-title>
   </v-toolbar>
+
+  <v-progress-circular
+    indeterminate
+    color="primary"
+  />
+
   <v-list two-line subheader>
     <v-list-tile avatar ripple>
       <v-list-tile-action>

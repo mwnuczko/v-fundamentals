@@ -11,11 +11,6 @@ import heroesRoutes from '../modules/06-heroes/routes';
 import citiesRoutes from '../modules/07-cities/routes';
 import realEstatesRoutes from '../modules/08-real-estates/routes';
 // vuex
-import vuexBasicsRoutes from '../modules/11-vuex-basics/routes';
-import todosAsyncBasicRoutes from '../modules/12-todos-async-basic/routes';
-import todosAsyncNormalizedRoutes from '../modules/13-todos-async-normalized/routes';
-import categorizedTodosRoutes from '../modules/14-categorized-todos/routes';
-import infiniteListRoutes from '../modules/15-infinite-list/routes';
 import PageNotFound from '../components/PageNotFound';
 
 
@@ -33,11 +28,6 @@ export default new Router({
     ...citiesRoutes,
     ...realEstatesRoutes,
     // vuex
-    ...vuexBasicsRoutes,
-    ...todosAsyncBasicRoutes,
-    ...todosAsyncNormalizedRoutes,
-    ...categorizedTodosRoutes,
-    ...infiniteListRoutes,
     { path: '*', component: PageNotFound },
   ],
 });
