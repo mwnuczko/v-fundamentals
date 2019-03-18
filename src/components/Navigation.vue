@@ -31,6 +31,11 @@ const FUNDAMENTALS_ITEMS = [
 ];
 
 const VUEX_ITEMS = [
+  { text: 'Vuex Basics', url: '/vuex-basics' },
+  { text: 'Todos Basic', url: '/todos-async-basic' },
+  { text: 'Todos Normalized', url: '/todos-async-normalized' },
+  { text: 'Categorized Todos', url: '/categorized-todos/categories' },
+  { text: 'Infinite List', url: '/infinite-list' },
 ];
 
 
