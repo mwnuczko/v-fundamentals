@@ -2,13 +2,13 @@
 <div class="list">
   <table class="data-table">
     <tr class="list-header">
-      <th>
-        <a>TODO</a>
+      <th v-for="th in metaData">
+        <a>{{ th.text }}</a>
       </th>
     </tr>
-    <tr class="list-item">
-      <td>
-        TODO
+    <tr class="list-item" :class="{highlighted: selectedItem === item }" v-for="item in items" @click="handleTrClick(item)">
+      <td v-for="meta in metaData">
+        {{item[meta.value]}}
       </td>
     </tr>
   </table>
@@ -18,6 +18,24 @@
 <script>
 export default {
   name: 'DataTable',
+  props: {
+    items: Array,
+    selectedItem: Object,
+    metaData: Array
+  },
+  methods: {
+    handleTrClick(item){
+      this.$emit('item-click', item);
+    },
+    isSelected(item){
+      return this.selectedItem.id === item.id;
+    }
+  },
+  computed: {
+    ths() {
+      return ( this.items & this.items[0] && Object.keys(this.items[0]));
+    }
+  }
 };
 </script>
 

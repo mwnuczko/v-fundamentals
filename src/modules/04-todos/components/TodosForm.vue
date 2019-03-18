@@ -9,12 +9,14 @@
       <v-text-field
         label="Title"
         required
+        v-model="title"
       />
       <v-text-field
         label="Description"
+        v-model="description"
       />
-      <v-btn>Submit</v-btn>
-      <v-btn>Clear</v-btn>
+      <v-btn :disabled="!title" @click="createTodo">Submit</v-btn>
+      <v-btn @click="clearForm">Clear</v-btn>
     </v-form>
   </v-card-text>
 </v-card>
@@ -23,6 +25,22 @@
 <script>
 export default {
   name: 'TodosForm',
+  data() {
+    return {
+      title: '',
+      description: ''
+    }
+  },
+  methods: {
+    createTodo() {
+      this.$emit('create-item',  { title: this.title, description: this.description } );
+      this.clearForm();
+    },
+    clearForm() {
+      this.title = '';
+      this.description = '';
+    }
+  }
 };
 </script>
 

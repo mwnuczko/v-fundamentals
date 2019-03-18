@@ -7,11 +7,19 @@
     <!--:selected-item="selectedHero"-->
     <!--@item-click="selectHero($event)"-->
   <!--/>-->
+  
+  <data-table v-if="heroes.length"
+    :items="heroes"
+    :meta-data="tableMetaData"
+    @item-click="selectHero($event)"
+    :selected-item="selectedHero"
+  />
 </div>
 </template>
 
 <script>
 import api from './api';
+import DataTable from "../../components/DataTable";
 
 const META_DATA = [
   { value: 'universe', text: 'Komiksowe Uniwersum' },
@@ -21,6 +29,7 @@ const META_DATA = [
 
 export default {
   name: 'HeroesModule',
+  components: {DataTable},
   data() {
     return {
       heroes: [],
@@ -30,6 +39,11 @@ export default {
   },
   methods: {
     selectHero(hero) {
+      if(this.selectedHero === hero) {
+        this.selectedHero = null;
+      } else {
+        this.selectedHero = hero;
+      }
       console.log('hero', hero.name);
     },
   },
@@ -37,6 +51,7 @@ export default {
     api.getAll().then((heroes) => {
       console.log('fetched heroes', heroes);
       // TODO
+      this.heroes = heroes;
     }).catch((error) => {
       console.log(error);
     });

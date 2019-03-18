@@ -10,6 +10,7 @@
   <div>
     <parent-child
       :text="parentMsg"
+      :full-name="'batman'"
       @message-sent="logMessage($event)"
     />
   </div>
@@ -31,7 +32,7 @@ export default {
   },
   methods: {
     logMessage(message) {
-      console.log('received from Child', message);
+      console.log('received from Child', message.name);
     },
   },
 };

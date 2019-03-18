@@ -1,10 +1,10 @@
 <template>
 <div class="option-picker">
-  <h3>TODO</h3>
-  <v-btn
-    color="success"
-  >
-    TODO
+  <h3>{{ label }}</h3>
+  <v-btn v-for="option in options" :key="option.id"
+    @click="$emit('option-select', option)"
+    :color="option !== selected ? 'success' : 'error'">
+    {{ option }}
   </v-btn>
 </div>
 </template>
@@ -12,6 +12,11 @@
 <script>
 export default {
   name: 'OptionPicker',
+  props: {
+    label: String,
+    options: Array,
+    selected: String
+  }
 };
 </script>
 

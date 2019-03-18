@@ -1,18 +1,18 @@
 <template>
 <div class="styled-text">
   <h3 class="headline mb-0">StyledText</h3>
-  <p>{{exampleText}}</p>
+  <p :class="classes">{{exampleText}}</p>
   <div>
     <div>
-      <input type="checkbox" id="bold"/>
-      <label for="bold">Bold</label>
+      <input type="checkbox" id="bold" v-model="isBold"/>
+      <label :class="" for="bold">Bold</label>
     </div>
     <div>
-      <input type="checkbox" id="italic"/>
+      <input type="checkbox" id="italic" @change="isItalic = !isItalic"/>
       <label for="italic">Italic</label>
     </div>
     <div>
-      <input type="checkbox" id="underline"/>
+      <input type="checkbox" id="underline" @change="isUnderline = !isUnderline"/>
       <label for="underline">Underline</label>
     </div>
   </div>
@@ -30,6 +30,15 @@ export default {
       isUnderline: false,
     };
   },
+  computed: {
+    classes() {
+      return {
+        'make-bold': this.isBold,
+        'add-underline': this.isUnderline,
+        'my-italic': this.isItalic
+      };
+    }
+  }
 };
 </script>
 

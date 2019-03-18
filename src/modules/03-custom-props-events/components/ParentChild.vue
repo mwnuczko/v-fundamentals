@@ -1,6 +1,7 @@
 <template>
 <div class="parent-child">
   <h3>Child</h3>
+  <h3>{{fullName}}</h3>
   <div>
     <p>
       Child received: {{text}}
@@ -19,9 +20,10 @@
 <script>
 export default {
   name: 'ParentChild',
-  props: [
-    'text',
-  ],
+  props: {
+    text: String,
+    fullName: [String, Number]
+  },
   data() {
     return {
       childText: '',
@@ -29,7 +31,7 @@ export default {
   },
   methods: {
     sendMessage() {
-      this.$emit('message-sent', this.childText);
+      this.$emit('message-sent', {name: this.childText});
     },
   },
 };

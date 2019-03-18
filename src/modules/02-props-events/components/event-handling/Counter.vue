@@ -3,8 +3,8 @@
   <h3 class="headline mb-0">Counter</h3>
   <div>{{value}}</div>
   <div>
-    <v-btn color="primary">Increment</v-btn>
-    <v-btn color="error">Decrement</v-btn>
+    <v-btn @click="increment('test', 123, $event)" color="primary">Increment</v-btn>
+    <v-btn @click="decrement" color="error">Decrement</v-btn>
   </div>
 </div>
 </template>
@@ -17,6 +17,15 @@ export default {
       value: 0,
     };
   },
+  methods: {
+    increment(a, b, c) {
+      this.value++;
+      console.log(a, b, c);
+    },
+    decrement() {
+      this.value--;
+    }
+  }
 };
 </script>
 

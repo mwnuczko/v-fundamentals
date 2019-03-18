@@ -3,34 +3,51 @@
   <h1>CarConfigurator</h1>
   <div class="chosen-config">
     <h3>Current config</h3>
-    <p>Engine: {{selectedEngine}}</p>
-    <p>Color: {{selectedColor}}</p>
-    <p>Drive Wheel: {{selectedDriveWheel}}</p>
+    <p v-for="config in configs">
+      {{ config.name }}: {{ config.selected }}
+    </p>
   </div>
   <div>
-    <option-picker
-      label=""
-      options=""
-      option-select=""
+    <option-picker v-for="config in configs"
+      :label="config.label"
+      :options="config.options"
+      @option-select="config.selected = $event"
+      :selected="config.selected"
     />
   </div>
 </div>
 </template>
 
 <script>
+import OptionPicker from './OptionPicker'
+
 export default {
   name: 'CarConfigurator',
+  components: {
+    OptionPicker
+  },
   data() {
     return {
-      engineLabel: 'Choose engine type',
-      selectedEngine: null,
-      engines: ['Petrol', 'Diesel', 'Tesla'],
-      colorLabel: 'Select color',
-      selectedColor: null,
-      colors: ['Black', 'White', 'Red', 'Yellow'],
-      driveWheelLabel: 'Your drive wheel?',
-      selectedDriveWheel: null,
-      driveWheels: ['4X', 'Front-Wheel-Drive', 'Rear-Wheel-Drive'],
+      configs: [
+        {
+          name: 'Engine',
+          label: 'Choose engine type',
+          options: ['Petrol', 'Diesel', 'Tesla'],
+          selected: null
+        },
+        {
+          name: 'Color',
+          label: 'Select color',
+          options: ['Black', 'White', 'Red', 'Yellow'],
+          selected: null
+        },
+        {
+          name: 'Drive Wheel',
+          label: 'Your drive wheel?',
+          options: ['4X', 'Front-Wheel-Drive', 'Rear-Wheel-Drive'],
+          selected: null
+        }
+      ]
     };
   },
 };
