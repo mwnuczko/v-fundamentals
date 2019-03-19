@@ -20,7 +20,6 @@ const state = {
 export const NAMESPACE = 'todos-async-normalized-module';
 
 export default {
-  namespaced: true,
   state,
   actions,
   getters,

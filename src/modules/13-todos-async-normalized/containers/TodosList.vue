@@ -18,7 +18,6 @@
 <script>
 import { mapActions, mapGetters } from 'vuex';
 import ListItems from '../../../components/ListItems';
-import { NAMESPACE } from '../store';
 
 export default {
   components: { ListItems },
@@ -33,10 +32,10 @@ export default {
     };
   },
   computed: {
-    ...mapGetters(NAMESPACE, ['todos', 'isTodosListFetching']),
+    ...mapGetters(['todos', 'isTodosListFetching']),
   },
   methods: {
-    ...mapActions(NAMESPACE, ['fetchTodos', 'deleteTodo']),
+    ...mapActions(['fetchTodos', 'deleteTodo']),
     check(todo) {
       console.log('check(todo)', todo);
     },

@@ -1,10 +1,10 @@
 import { filter } from 'lodash';
 import {
-  SHOW_TODO_LIST,
+  FETCH_ALL_TODOS,
   CREATE_TODO,
   DELETE_TODO,
 } from './mutation-types';
 
-// TODO mutations: createTodo, deleteTodo, showTodoList
+// TODO mutations: addTodo, deleteTodo, setTodos
 
 export default {};

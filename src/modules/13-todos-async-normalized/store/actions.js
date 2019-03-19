@@ -8,31 +8,17 @@ import {
 import api from '../api';
 
 const fetchTodos = (context) => {
-  context.commit(FETCH_TODOS_REQUEST, true);
+  // TODO: FETCH_TODOS_REQUEST
   api.getAll().then((todosPayload) => {
-    context.commit(FETCH_TODOS_SUCCESS, todosPayload);
+    console.log('normalized todos', todosPayload);
+    // TODO: FETCH_TODOS_SUCCESS
   }, (error) => {
-    context.commit(FETCH_TODOS_FAILURE, error);
+    // TODO: FETCH_TODOS_FAILURE
   });
 };
 
-const createTodo = (context, todo) => {
-  api.create(todo).then((createdTodoPayload) => {
-    context.commit(CREATE_TODO, createdTodoPayload);
-  });
-};
-
-const deleteTodo = (context, todo) => {
-  if (!todo) {
-    throw new Error('Undefined todo');
-  }
-  api.remove(todo).then((deletedId) => {
-    context.commit(DELETE_TODO, deletedId);
-  });
-};
+// TODO actions: createTodo, deleteTodo
 
 export default {
   fetchTodos,
-  createTodo,
-  deleteTodo,
 };

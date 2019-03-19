@@ -1,4 +1,3 @@
-import { entities, saveEntity, deleteEntity } from '../../../store/mutations';
 import {
   FETCH_TODOS_REQUEST,
   FETCH_TODOS_FAILURE,
@@ -8,32 +7,29 @@ import {
 } from './mutation-types';
 
 const createTodo = (state, todoPayload) => {
-  saveEntity(state, todoPayload);
+  // TODO
 };
 
-const entitiesKey = 'todos';
 const deleteTodo = (state, deletedId) => {
-  deleteEntity(state, deletedId, entitiesKey);
+  // TODO
 };
 
-const isFetchingTodosMutation = (state, value) => {
-  state.isFetching.todos = value;
+const setIsFetchingTodos = (state, value) => {
+  // TODO
 };
 
-const todosMutation = (state, todosPayload) => {
-  isFetchingTodosMutation(state, false);
-  entities(state, todosPayload);
+const setTodos = (state, todosPayload) => {
+  // TODO
 };
 
-const errorMutation = (state, error) => {
-  isFetchingTodosMutation(state, false);
-  state.error.todos = error;
+const setTodosFetchError = (state, error) => {
+  // TODO
 };
 
 export default {
-  [FETCH_TODOS_REQUEST]: isFetchingTodosMutation,
-  [FETCH_TODOS_SUCCESS]: todosMutation,
-  [FETCH_TODOS_FAILURE]: errorMutation,
+  [FETCH_TODOS_REQUEST]: setIsFetchingTodos,
+  [FETCH_TODOS_SUCCESS]: setTodos,
+  [FETCH_TODOS_FAILURE]: setTodosFetchError,
   [CREATE_TODO]: createTodo,
   [DELETE_TODO]: deleteTodo,
 };

@@ -1,4 +1,5 @@
-import { entities, saveEntity, deleteEntity } from '../../../store/mutations';
+let entities, saveEntity, deleteEntity;
+
 import {
   FETCH_CATEGORIES_REQUEST,
   FETCH_CATEGORIES_SUCCESS,

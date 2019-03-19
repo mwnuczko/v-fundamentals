@@ -1,5 +1,5 @@
 import {
-  SHOW_TODO_LIST,
+  FETCH_ALL_TODOS,
   DELETE_TODO,
   CREATE_TODO,
 } from './mutation-types';
