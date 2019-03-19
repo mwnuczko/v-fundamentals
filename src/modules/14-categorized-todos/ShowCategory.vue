@@ -1,6 +1,6 @@
 <template>
 <v-card>
-  <div v-if="isCategoryFetching" class="text-xs-center">
+  <div v-if="!isCategoryFetched" class="text-xs-center">
     <v-progress-circular indeterminate color="primary"/>
   </div>
   <div v-else>
@@ -45,8 +45,8 @@ export default {
     todos() {
       return []; // TODO todos by category id
     },
-    isCategoryFetching() {
-      return !this.category;
+    isCategoryFetched() {
+      return !!this.category;
     },
   },
   methods: {
