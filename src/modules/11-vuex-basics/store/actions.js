@@ -2,12 +2,11 @@ import { SYNC_INCREMENT, SYNC_DECREMENT, ASYNC_INCREMENT, ASYNC_DECREMENT } from
 import api from '../api';
 
 const incrementSyncCounter = (context) => {
+  // console.log('incrementSyncCounter context obj', context);
   context.commit(SYNC_INCREMENT);
 };
 
-const decrementSyncCounter = (context) => {
-  context.commit(SYNC_DECREMENT);
-};
+// TODO: decrementSyncCounter action
 
 const incrementAsyncCounter = (context, value) => {
   return api.ajaxCall().then(() => {
@@ -15,15 +14,9 @@ const incrementAsyncCounter = (context, value) => {
   });
 };
 
-const decrementAsyncCounter = (context, value) => {
-  return api.ajaxCall().then(() => {
-    context.commit(ASYNC_DECREMENT, value);
-  });
-};
+// TODO: decrementAsyncCounter action
 
 export default {
   incrementSyncCounter,
-  decrementSyncCounter,
   incrementAsyncCounter,
-  decrementAsyncCounter,
 };

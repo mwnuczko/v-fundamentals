@@ -10,16 +10,19 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex';
-import { NAMESPACE } from '../store';
-
 export default {
   name: 'AsyncCounter',
   methods: {
-    ...mapActions(NAMESPACE, ['incrementAsyncCounter', 'decrementAsyncCounter']),
+    incrementAsyncCounter(value) {
+      // TODO
+    }
+    // TODO: decrementAsyncCounter
+    // TODO: mapActions
   },
   computed: {
-    ...mapGetters(NAMESPACE, ['asyncCounterValue']),
+    asyncCounterValue() {
+      return 997;
+    }
   },
 };
 </script>

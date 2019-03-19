@@ -10,16 +10,22 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex';
-import { NAMESPACE } from '../store';
-
 export default {
   name: 'SyncCounter',
   methods: {
-    ...mapActions(NAMESPACE, ['incrementSyncCounter', 'decrementSyncCounter']),
+    incrementSyncCounter() {
+      // TODO: dispatch increment sync counter action
+    },
+    decrementSyncCounter() {
+      // TODO
+    }
+    // TODO: introduce mapActions
   },
   computed: {
-    ...mapGetters(NAMESPACE, ['syncCounterValue']),
+    syncCounterValue() {
+      return 123; // TODO
+    }
+    // TODO: introduce mapGetters
   },
 };
 </script>

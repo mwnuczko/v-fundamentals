@@ -2,11 +2,12 @@ const syncCounterValue = (state) => {
   return state.syncCounter.value;
 };
 
-const asyncCounterValue = (state) => {
-  return state.asyncCounter.value;
-};
+// TODO: multipliedSyncCounterValue getter
+
+// TODO: asyncCounterValue getter
+
+// TODO: squaredAsyncCounterValue getter
 
 export default {
   syncCounterValue,
-  asyncCounterValue,
 };

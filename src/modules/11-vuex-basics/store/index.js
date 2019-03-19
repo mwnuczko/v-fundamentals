@@ -14,7 +14,6 @@ const state = {
 export const NAMESPACE = 'vuex-basics-module';
 
 export default {
-  namespaced: true,
   state,
   actions,
   getters,
