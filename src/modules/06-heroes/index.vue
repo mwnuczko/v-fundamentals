@@ -1,13 +1,6 @@
 <template>
 <div>
   <h1>Heroes</h1>
-  <!--<data-table-->
-    <!--:items="heroes"-->
-    <!--:meta-data="tableMetaData"-->
-    <!--:selected-item="selectedHero"-->
-    <!--@item-click="selectHero($event)"-->
-  <!--/>-->
-  
   <data-table v-if="heroes.length"
     :items="heroes"
     :meta-data="tableMetaData"
@@ -40,17 +33,17 @@ export default {
   methods: {
     selectHero(hero) {
       if(this.selectedHero === hero) {
+        // console.log('unselected hero:', hero.name);
         this.selectedHero = null;
       } else {
+        // console.log('selected hero:', hero.name);
         this.selectedHero = hero;
       }
-      console.log('hero', hero.name);
     },
   },
-  mounted() {
+  created() {
     api.getAll().then((heroes) => {
-      console.log('fetched heroes', heroes);
-      // TODO
+      // console.log('fetched heroes', heroes);
       this.heroes = heroes;
     }).catch((error) => {
       console.log(error);
