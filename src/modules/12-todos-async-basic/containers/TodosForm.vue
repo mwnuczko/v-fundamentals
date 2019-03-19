@@ -11,7 +11,6 @@
 
 <script>
 import { mapActions } from 'vuex';
-import { NAMESPACE } from '../store';
 import SimpleForm from '../../../components/SimpleForm';
 
 const LABELS = {
@@ -33,10 +32,9 @@ export default {
     };
   },
   methods: {
-    ...mapActions(NAMESPACE, ['createTodo']),
+    // TODO actions: createTodo
     submit({ required, optional }) {
-      this.createTodo({ title: required, description: optional });
-      this.clear();
+      // TODO: create todo & clear fields
     },
     clear() {
       this.values = { required: '', optional: '' };

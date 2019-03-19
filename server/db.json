@@ -24,6 +24,11 @@
       "title": "ff",
       "description": "ff",
       "id": 111
+    },
+    {
+      "title": "other",
+      "description": "",
+      "id": 112
     }
   ],
   "heroes": [

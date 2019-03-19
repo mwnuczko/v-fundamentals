@@ -4,7 +4,7 @@
     <v-toolbar-title>TODOs</v-toolbar-title>
   </v-toolbar>
   <list-items
-    :is-fetching="false"
+    :is-fetching="true"
     :items="todos"
     :title-prop="propNames.title"
     :sub-title-prop="propNames.subTitle"
@@ -18,7 +18,6 @@
 <script>
 import { mapActions, mapGetters } from 'vuex';
 import ListItems from '../../../components/ListItems';
-import { NAMESPACE } from '../store';
 
 export default {
   components: { ListItems },
@@ -33,16 +32,19 @@ export default {
     };
   },
   computed: {
-    ...mapGetters(NAMESPACE, ['todos']),
+    // TODO getters: todos
+    todos() {
+      return []; // TODO
+    }
   },
   methods: {
-    ...mapActions(NAMESPACE, ['fetchTodos', 'deleteTodo']),
+    // TODO actions: fetchTodos, deleteTodo
     check(todo) {
       console.log('check(todo)', todo);
     },
   },
   mounted() {
-    this.fetchTodos();
+    // TODO: fetchTodos
   },
 };
 </script>

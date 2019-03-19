@@ -5,29 +5,10 @@ import {
 } from './mutation-types';
 import api from '../../../api/todos-api';
 
-const fetchTodos = (context) => {
-  api.getAll().then((todos) => {
-    context.commit(SHOW_TODO_LIST, todos);
-  });
-};
+// api.getAll().then((todos) => ...)
+// api.create(params).then((createdTodo) => ...)
+// api.remove(todo).then((deletedId) => ...)
 
-const createTodo = (context, todo) => {
-  api.create(todo).then((createdTodo) => {
-    context.commit(CREATE_TODO, createdTodo);
-  });
-};
+// TODO actions: fetchTodos, createTodo, deleteTodo
 
-const deleteTodo = (context, todo) => {
-  if (!todo) {
-    throw new Error('Undefined todo');
-  }
-  api.remove(todo).then((deletedId) => {
-    context.commit(DELETE_TODO, deletedId);
-  });
-};
-
-export default {
-  fetchTodos,
-  createTodo,
-  deleteTodo,
-};
+export default {};

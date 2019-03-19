@@ -1,7 +1,3 @@
-const todos = (state) => {
-  return state.todos;
-};
+// TODO getters: todos
 
-export default {
-  todos,
-};
+export default {};
