@@ -18,14 +18,19 @@
 <script>
 import { map } from 'lodash';
 import { mapActions, mapGetters } from 'vuex';
-import { NAMESPACE } from '../store';
 import LinkableList from '../../../components/LinkableList';
 
 export default {
   components: { LinkableList },
   name: 'CategoriesList',
   computed: {
-    ...mapGetters(NAMESPACE, ['categories', 'isCategoriesListFetching']),
+    // TODO getters: categories', isCategoriesListFetching
+    categories() {
+      return [];
+    },
+    isCategoriesListFetching() {
+      return false;
+    },
     categoriesUrls() {
       return map(this.categories, (category) => {
         const { id } = category;
@@ -40,10 +45,10 @@ export default {
     },
   },
   methods: {
-    ...mapActions(NAMESPACE, ['fetchCategories', 'deleteCategory']),
+    // TODO actions: fetchCategories', deleteCategory
   },
   mounted() {
-    this.fetchCategories();
+    // TODO fetchCategories
   },
 };
 </script>

@@ -1,5 +1,3 @@
-let entities, saveEntity, deleteEntity;
-
 import {
   FETCH_CATEGORIES_REQUEST,
   FETCH_CATEGORIES_SUCCESS,
@@ -13,51 +11,45 @@ import {
   DELETE_TODO_FROM_CATEGORY_SUCCESS,
 } from './mutation-types';
 
-const categoriesEntityId = 'categories';
 const deleteCategory = (state, deletedId) => {
-  deleteEntity(state, deletedId, categoriesEntityId);
+  // TODO
 };
 
-const isFetchingCategories = (state, value) => {
+const setIsFetchingCategories = (state, value) => {
   state.isFetching.categories = value;
 };
 
-const fetchedCategories = (state, categoriesPayload) => {
-  isFetchingCategories(state, false);
-  entities(state, categoriesPayload);
+const setCategories = (state, categoriesPayload) => {
+  // TODO
 };
 
-const errorFetchingCategories = (state, error) => {
-  isFetchingCategories(state, false);
-  state.error.categories = error;
+const setErrorFetchingCategories = (state, error) => {
+  // TODO
 };
 
-const isFetchingSingleCategory = (state, value) => {
-  console.log('isFetchingSingleCategory TODO', state, value);
+const setIsFetchingSingleCategory = (state, value) => {
 };
 
-const fetchedSingleCategory = (state, categoryPayload) => {
-  isFetchingSingleCategory(state, false);
-  entities(state, categoryPayload);
+const setSingleCategory = (state, categoryPayload) => {
+  // TODO
 };
 
-const errorFetchingSingleCategory = (state, error) => {
-  isFetchingSingleCategory(state, false);
-  console.log('errorFetchingCategory TODO', state, error);
+const setErrorFetchingSingleCategory = (state, error) => {
+  // TODO
 };
 
 const saveCategory = (state, categoryPayload) => {
-  saveEntity(state, categoryPayload);
+  // TODO
 };
 
 export default {
-  [FETCH_CATEGORIES_REQUEST]: isFetchingCategories,
-  [FETCH_CATEGORIES_SUCCESS]: fetchedCategories,
-  [FETCH_CATEGORIES_FAILURE]: errorFetchingCategories,
+  [FETCH_CATEGORIES_REQUEST]: setIsFetchingCategories,
+  [FETCH_CATEGORIES_SUCCESS]: setCategories,
+  [FETCH_CATEGORIES_FAILURE]: setErrorFetchingCategories,
 
-  [FETCH_CATEGORY_REQUEST]: isFetchingSingleCategory,
-  [FETCH_CATEGORY_SUCCESS]: fetchedSingleCategory,
-  [FETCH_CATEGORY_FAILURE]: errorFetchingSingleCategory,
+  [FETCH_CATEGORY_REQUEST]: setIsFetchingSingleCategory,
+  [FETCH_CATEGORY_SUCCESS]: setSingleCategory,
+  [FETCH_CATEGORY_FAILURE]: setErrorFetchingSingleCategory,
 
   [CREATE_CATEGORY]: saveCategory,
   [DELETE_CATEGORY]: deleteCategory,

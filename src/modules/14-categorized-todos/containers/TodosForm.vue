@@ -11,7 +11,6 @@
 
 <script>
 import { mapActions } from 'vuex';
-import { NAMESPACE } from '../store';
 import SimpleForm from '../../../components/SimpleForm';
 
 const LABELS = {
@@ -36,7 +35,7 @@ export default {
     };
   },
   methods: {
-    ...mapActions(NAMESPACE, ['createTodoInCategory']),
+    // TODO actions: createTodoInCategory
     submit({ required, optional }) {
       const params = {
         categoryId: this.id,

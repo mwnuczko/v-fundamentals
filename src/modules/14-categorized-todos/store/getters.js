@@ -8,23 +8,17 @@ const categoryById = (state) => {
   return state.entities.categories;
 };
 
+
 const categories = function (state, getters) {
-  return map(getters.categoriesIds, (id) => {
-    return getters.categoryById[id];
-  });
+  // TODO
 };
 
 const todosByCategoryId = (state, getters) => {
-  return (id) => {
-    const { todos = [] } = getters.categoryById[id];
-    return map(todos, (todoId) => {
-      return state.entities.todos[todoId];
-    });
-  };
+  // TODO: parametrized getter -> return function
 };
 
 const isCategoriesListFetching = (state) => {
-  return state.isFetching.categories;
+  // TODO
 };
 
 export default {

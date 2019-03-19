@@ -24,7 +24,6 @@ const state = {
 export const NAMESPACE = 'categorized-todos-module';
 
 export default {
-  namespaced: true,
   state,
   actions,
   getters,
