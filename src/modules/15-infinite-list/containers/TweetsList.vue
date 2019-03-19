@@ -34,7 +34,7 @@ export default {
     };
   },
   methods: {
-    ...mapActions(NAMESPACE, ['fetchTweetsPage', 'subscribeToNewTweets', 'markAllTweetsAsRead']),
+    // TODO actions: fetchTweetsPage, subscribeToNewTweets, markAllTweetsAsRead
     loadMoreTweets() {
       const { offset, limit } = this;
       this.fetchTweetsPage({ offset, limit });
@@ -42,11 +42,19 @@ export default {
     },
   },
   computed: {
-    ...mapGetters(NAMESPACE, ['tweets', 'tweetsCount', 'unreadTweetsCount']),
+    // TODO getters: tweets, tweetsCount, unreadTweetsCount
+    tweets() {
+      return [];
+    },
+    tweetsCount() {
+      return 99;
+    },
+    unreadTweetsCount() {
+      return 98;
+    }
   },
   mounted() {
-    this.loadMoreTweets();
-    this.subscribeToNewTweets();
+    // TODO: loadMoreTweets; subscribeToNewTweets
   },
 };
 </script>

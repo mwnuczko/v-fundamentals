@@ -8,26 +8,21 @@ import api from '../api';
 import normalizeTweets from '../api/normalize-tweets';
 
 const fetchTweetsPage = (context, { offset, limit }) => {
-  context.commit(FETCH_TWEETS_REQUEST, { isFetching: true }); // TODO
-  api.getList({ offset, limit }).then((tweets) => {
-    const normalizedTweets = normalizeTweets.array(tweets);
-    context.commit(FETCH_TWEETS_SUCCESS, normalizedTweets);
-  }, (error) => {
-    context.commit(FETCH_TWEETS_FAILURE, error);
-  });
+  // TODO: request
+  // TODO: success
+  // TODO: error
 };
 
 const subscribeToNewTweets = (context) => {
-  context.commit(NEW_TWEETS_SUBSCRIPTION, Date.now());
+  // TODO mut: NEW_TWEETS_SUBSCRIPTION
   const updatesFrequency = 5000;
   api.subscribe((tweets) => {
-    const normalizedTweets = normalizeTweets.array(tweets);
-    context.commit(PUSH_TWEETS_SUCCESS, normalizedTweets);
+    // TODO mut: PUSH_TWEETS_SUCCESS
   }, updatesFrequency);
 };
 
 const markAllTweetsAsRead = (context) => {
-  context.commit(ALL_TWEETS_READ);
+  // TODO
 };
 
 

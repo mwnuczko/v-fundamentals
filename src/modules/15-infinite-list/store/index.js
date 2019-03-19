@@ -15,7 +15,6 @@ const state = {
 export const NAMESPACE = 'infinite-list-module';
 
 export default {
-  namespaced: true,
   state,
   actions,
   getters,

@@ -7,70 +7,36 @@ import {
 } from './mutation-types';
 
 
-const isFetchingMutation = (state, payload) => {
-  console.log('isFetchingMutation', payload);
+const setIsFetchingTweets = (state, payload) => {
+  // TODO
 };
 
-const pushEntities = (entitiesName, state, payload, unshift = false) => {
-  if (!entitiesName) {
-    throw new Error('Missing required "entitiesName" param');
-  }
-  const entitiesCopy = merge({}, state.entities);
-  entitiesCopy[entitiesName] = {
-    ...entitiesCopy[entitiesName],
-    ...payload.entities[entitiesName],
-  };
-  const resultCopy = merge({}, state.result);
-  if (unshift) {
-    resultCopy[entitiesName] = [
-      ...payload.result[entitiesName],
-      ...resultCopy[entitiesName],
-    ];
-  } else {
-    resultCopy[entitiesName] = [
-      ...resultCopy[entitiesName],
-      ...payload.result[entitiesName],
-    ];
-  }
-  state.entities = entitiesCopy;
-  state.result = resultCopy;
+const setTweets = (state, tweetsPayload) => {
+  // TODO
 };
 
-const fetchedTweets = (state, tweetsPayload) => {
-  console.log('fetchedTweets ', state, tweetsPayload);
-  // isFetchingMutation(state, false);
-  pushEntities('tweets', state, tweetsPayload);
+const setNewTweetsSubscription = (state, payload) => {
+  // TODO
 };
 
-const newTweetsSubscription = (state, payload) => {
-  console.log('newTweetsSubscription TODO', state, payload);
+const addPushedTweets = (state, tweetsPayload) => {
+  // TODO
 };
 
-const pushedTweets = (state, tweetsPayload) => {
-  // isFetchingMutation(state, false);
-  pushEntities('tweets', state, tweetsPayload, true);
-  state.result.unreadTweets = [
-    ...state.result.unreadTweets,
-    ...tweetsPayload.result.tweets,
-  ];
-};
-
-const allTweetsRead = (state) => {
-  state.result.unreadTweets = [];
+const setAllTweetsRead = (state) => {
+  // TODO
 };
 
 
-const errorMutation = (state, error) => {
-  console.log('errorMutation ', state, error);
-  // isFetchingMutation(state, false);
-  // state.todosList.error = error;
+const setErrorFetchingTweets = (state, error) => {
+  // TODO
 };
 
 export default {
-  [FETCH_TWEETS_REQUEST]: isFetchingMutation,
-  [FETCH_TWEETS_SUCCESS]: fetchedTweets,
-  [FETCH_TWEETS_FAILURE]: errorMutation,
-  [NEW_TWEETS_SUBSCRIPTION]: newTweetsSubscription,
-  [PUSH_TWEETS_SUCCESS]: pushedTweets,
-  [ALL_TWEETS_READ]: allTweetsRead,
+  [FETCH_TWEETS_REQUEST]: setIsFetchingTweets,
+  [FETCH_TWEETS_SUCCESS]: setTweets,
+  [FETCH_TWEETS_FAILURE]: setErrorFetchingTweets,
+  [NEW_TWEETS_SUBSCRIPTION]: setNewTweetsSubscription,
+  [PUSH_TWEETS_SUCCESS]: addPushedTweets,
+  [ALL_TWEETS_READ]: setAllTweetsRead,
 };

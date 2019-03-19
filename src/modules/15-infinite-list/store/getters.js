@@ -9,17 +9,15 @@ const tweetsById = (state) => {
 };
 
 const tweets = (state, getters) => {
-  return map(getters.tweetsIds, (id) => {
-    return getters.tweetsById[id];
-  });
+  // TODO
 };
 
 const tweetsCount = (state, getters) => {
-  return getters.tweetsIds.length;
+  // TODO
 };
 
 const unreadTweetsCount = (state) => {
-  return state.result.unreadTweets.length;
+  // TODO
 };
 
 export default {
