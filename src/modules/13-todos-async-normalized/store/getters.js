@@ -8,14 +8,12 @@ const todosMap = (state) => {
   return state.entities.todos;
 };
 
-// TODO
-const todos = function (state, getters) {
-  return [];
+const todos = (state, getters) => {
+  return getters.todosIds.map( id => getters.todosMap[id]);
 };
 
-// TODO
 const isTodosListFetching = (state) => {
-  return false;
+  return state.isFetching.todos;
 };
 
 export default {

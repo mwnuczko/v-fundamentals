@@ -4,7 +4,7 @@ import mutations from './mutations';
 
 const state = {
   syncCounter: {
-    value: 0,
+    value: 100,
   },
   asyncCounter: {
     value: -11,

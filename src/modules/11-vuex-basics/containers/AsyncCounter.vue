@@ -1,7 +1,7 @@
 <template>
 <div class="counter">
   <h3 class="headline mb-0">Async Counter</h3>
-  <div>{{asyncCounterValue}}</div>
+  <div>{{counterValue}}</div>
   <div>
     <v-btn @click="incrementAsyncCounter(10)" color="primary">Increment</v-btn>
     <v-btn @click="decrementAsyncCounter(5)" color="error">Decrement</v-btn>
@@ -10,19 +10,24 @@
 </template>
 
 <script>
+import { mapActions, mapGetters } from 'vuex';
+
 export default {
   name: 'AsyncCounter',
   methods: {
+    ...mapActions(['decrementAsyncCounter']),
     incrementAsyncCounter(value) {
       // TODO
+      this.$store.dispatch('incrementAsyncCounter', value);
     }
     // TODO: decrementAsyncCounter
     // TODO: mapActions
   },
   computed: {
-    asyncCounterValue() {
-      return 997;
-    }
+    ...mapGetters({counterValue: 'asyncCounterValue'})
+    // asyncCounterValue() {
+    //   return 997;
+    // }
   },
 };
 </script>

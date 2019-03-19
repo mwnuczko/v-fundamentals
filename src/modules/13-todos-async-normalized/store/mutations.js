@@ -12,14 +12,21 @@ const createTodo = (state, todoPayload) => {
 
 const deleteTodo = (state, deletedId) => {
   // TODO
+  debugger;
+  delete state.entities.todos[deletedId.id];
+  const newResultTodos = state.result.todos.filter(todoId => todoId !== deletedId.id);
+  state.result.todos = newResultTodos;
+  // const resultIndex = state.result.todos.indexOf(deletedId);
+  // state.result.todos.splice(resultIndex, 1);
 };
 
 const setIsFetchingTodos = (state, value) => {
-  // TODO
+  state.isFetching.todos = value;
 };
 
-const setTodos = (state, todosPayload) => {
-  // TODO
+const setTodos = (state, {entities, result}) => {
+  state.entities.todos = entities.todos;
+  state.result.todos = result.todos;
 };
 
 const setTodosFetchError = (state, error) => {

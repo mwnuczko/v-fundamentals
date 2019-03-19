@@ -1,18 +1,27 @@
+import api from '../api/index';
+
 const realEstatesService = {
   selectedRealEstate: null,
   realEstates: [],
 
   fetch() {
-    // TODO
+    // DONE
+    return api.getAll().then((estates) => {
+      this.realEstates = estates;
+    });
   },
 
   toggleRealEstate(estate) {
-    // TODO
+    // DONE
     console.log('toggleRealEstate', estate);
+    if (this.selectedRealEstate === estate)  {
+      this.selectedRealEstate = null;
+    } else {
+      this.selectedRealEstate = estate;
+    }
   },
 
   reset() {
-    // TODO
   },
 };
 

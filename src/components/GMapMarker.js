@@ -1,4 +1,4 @@
-const HIGHLIGHTED_ICON = '/static/img/marker-icon-2x.png';
+const HIGHLIGHTED_ICON = '/img/marker-icon-2x.png';
 
 export default class GMapMarker {
   constructor(googleMarker, object) {
@@ -10,6 +10,7 @@ export default class GMapMarker {
     this.marker.addListener(eventName, () => {
       listenerFn.call(this.marker, this.object, this);
     });
+    // return this;
   }
 
   toggleHighlight(isHighlighted) {

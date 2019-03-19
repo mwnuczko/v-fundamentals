@@ -6,5 +6,10 @@ import {
 } from './mutation-types';
 
 // TODO mutations: addTodo, deleteTodo, setTodos
+const setTodos = (state, value) => {
+  state.todos = value;
+};
 
-export default {};
+export default {
+  [FETCH_ALL_TODOS]: setTodos
+};

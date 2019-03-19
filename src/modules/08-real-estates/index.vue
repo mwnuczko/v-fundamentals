@@ -4,25 +4,25 @@
 
   <v-layout row>
     <v-flex class="xs8 sm8 lg8 xl8">
-      <!--<g-map-->
-        <!--:geo-objects="realEstates"-->
-        <!--:selected="selected"-->
-        <!--@marker-click="onRealEstateClick($event)"-->
-      <!--/>-->
+      <g-map
+        :geo-objects="realEstates"
+        :selected="selected"
+        @marker-click="onRealEstateClick($event)"
+      />
     </v-flex>
 
     <v-flex class="xs4 sm4 lg4 xl4">
-      <!--<real-estate-details :item="selected"/>-->
+      <real-estate-details :item="selected"/>
     </v-flex>
   </v-layout>
   <v-layout row>
     <v-flex class="xs12 sm12 lg12 xl12">
-      <!--<data-table-->
-        <!--:items="realEstates"-->
-        <!--:selected-item="selected"-->
-        <!--:meta-data="metadata"-->
-        <!--@item-click="onRealEstateClick($event)"-->
-      <!--/>-->
+      <data-table
+        :items="realEstates"
+        :selected-item="selected"
+        :meta-data="metadata"
+        @item-click="onRealEstateClick($event)"
+      />
     </v-flex>
   </v-layout>
 </v-flex>
@@ -30,6 +30,9 @@
 
 <script>
 import realEstatesService from './services/real-estates.service';
+import GMap from "../../components/GMap";
+import DataTable from "../../components/DataTable";
+import RealEstateDetails from "./components/RealEstateDetails";
 
 const metadata = [
   { value: 'street', text: 'Ulica' },
@@ -39,15 +42,33 @@ const metadata = [
 
 export default {
   name: 'RealEstatesModule',
+  components: {RealEstateDetails, DataTable, GMap},
   data() {
     return {
       service: realEstatesService,
       metadata,
     };
   },
+  computed: {
+    realEstates() {
+      return this.service.realEstates;
+    },
+    selected() {
+      return this.service.selectedRealEstate;
+    }
+  },
   mounted() {
     this.service.fetch();
   },
+  methods: {
+    onRealEstateClick(estate) {
+      if (this.service.selectedRealEstate === estate)  {
+        this.service.toggleRealEstate(null)
+      } else {
+        this.service.toggleRealEstate(estate);
+      }
+    }
+  }
 };
 </script>
 

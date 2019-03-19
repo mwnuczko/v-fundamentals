@@ -4,7 +4,7 @@
     <v-toolbar-title>TODOs</v-toolbar-title>
   </v-toolbar>
   <list-items
-    :is-fetching="true"
+    :is-fetching="isFetching"
     :items="todos"
     :title-prop="propNames.title"
     :sub-title-prop="propNames.subTitle"
@@ -24,6 +24,7 @@ export default {
   name: 'TodosList',
   data() {
     return {
+      isFetching: true,
       propNames: {
         title: 'title',
         subTitle: 'description',
@@ -32,19 +33,26 @@ export default {
     };
   },
   computed: {
+    ...mapGetters(['todos'])
     // TODO getters: todos
-    todos() {
-      return []; // TODO
-    }
+    // todos() {
+    //   return []; // TODO
+    // }
   },
   methods: {
     // TODO actions: fetchTodos, deleteTodo
+    ...mapActions(['fetchTodos']),
     check(todo) {
       console.log('check(todo)', todo);
     },
   },
   mounted() {
     // TODO: fetchTodos
+    this.isFetching = true;
+    this.fetchTodos().finally(() => {
+      setTimeout(()=>{      this.isFetching = false;
+      }, 2000)
+    });
   },
 };
 </script>

@@ -1,11 +1,11 @@
 <template>
-<div class="g-map"></div>
+<div ref="mapContainer" class="g-map"></div>
 </template>
 
 <script>
-import GMapSimpleMap from './GMapSimpleMap';
-
-// TODO 1: init simple gmap:
+  import GMapSimpleMap from './GMapSimpleMap';
+  
+  // TODO 1: init simple gmap:
 // const map = new GMapSimpleMap(el)
 // TODO 2: render markers:
 // const marker = gmap.createMarker(objWithLatLng)
@@ -14,6 +14,40 @@ import GMapSimpleMap from './GMapSimpleMap';
 
 export default {
   name: 'GMap',
+	props: {
+    geoObjects: Array,
+    selected: Object
+	},
+	data() {
+    return {
+      markers: []
+    }
+	},
+	watch: {
+    geoObjects(newMarkersArray) {
+      this.markers = [];
+      newMarkersArray.forEach( geoObject => {
+        const marker = this.map.createMarker(geoObject);
+				marker.on('click', this.mapClick);
+        this.markers.push(marker);
+				// this.markers.push(this.map.createMarker(geoObject).on('click', this.mapClick));
+				});
+		},
+    selected(newCity) {
+			this.markers.forEach(marker => {
+					marker.toggleHighlight(marker.matches(newCity));
+			});
+		}
+	},
+	methods: {
+		mapClick(city) {
+      this.$emit('marker-click', city);
+      return city;
+		},
+  },
+	mounted() {
+    this.map = new GMapSimpleMap(this.$refs.mapContainer);
+  }
 };
 </script>
 

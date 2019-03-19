@@ -1,26 +1,6 @@
 {
   "todos": [
     {
-      "id": 100,
-      "title": "Buy milk",
-      "description": "2 cartons"
-    },
-    {
-      "title": "Do Homework",
-      "description": "Math, physics",
-      "id": 104
-    },
-    {
-      "title": "abc",
-      "description": "def",
-      "id": 106
-    },
-    {
-      "title": "asas",
-      "description": "asas",
-      "id": 108
-    },
-    {
       "title": "ff",
       "description": "ff",
       "id": 111
