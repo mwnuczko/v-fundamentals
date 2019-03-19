@@ -27,7 +27,6 @@
 import { mapActions, mapGetters } from 'vuex';
 import ListItems from '../../components/ListItems';
 import TodosForm from './containers/TodosForm';
-import { NAMESPACE } from './store';
 
 export default {
   components: {
@@ -39,30 +38,28 @@ export default {
   ],
   name: 'ShowCategory',
   computed: {
-    ...mapGetters(NAMESPACE, ['categoryById', 'todosByCategoryId']),
+    // TODO getters: categoryById, todosByCategoryId
     category() {
-      return this.categoryById[this.id];
+      return null; // TODO category by id
     },
     todos() {
-      return this.todosByCategoryId(this.id);
+      return []; // TODO todos by category id
     },
     isCategoryFetching() {
       return !this.category;
     },
   },
   methods: {
-    ...mapActions(NAMESPACE, ['fetchCategory', 'deleteTodoFromCategory']),
+    // TODO actions: fetchCategory, deleteTodoFromCategory
     check(todo) {
       console.log('check(todo)', todo);
     },
     deleteTodo(todoId) {
-      this.deleteTodoFromCategory({ categoryId: this.id, todoId });
+      // TODO
     },
   },
   created() {
-    if (this.isCategoryFetching) {
-      this.fetchCategory(this.id);
-    }
+    // TODO fetch category if not already fetched
   },
 };
 </script>
